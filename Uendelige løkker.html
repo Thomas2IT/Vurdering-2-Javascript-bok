@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="InteraktivSideStil.css">
+<head>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="Home.html">Innholdsfortegnelse</a></li>
+  <li><a href="While-løkker.html">While-løkker</a></li>
+  <li><a href="Uendelige løkker.html">Uendelige løkker</a></li>
+  <li><a href="For-løkker.html">For-løkker</a></li>
+  <li><a href="Benytte telleren til mer enn en teller.html">Benytte telleren til mer enn en teller</a></li>
+  <li><a href="Tegne Rutenett.html">Eksempel- Tegne rutenett</a></li>
+  <li><a href="#about">Nestede kontrollstrukturer</a></li>
+  <li><a href="#about">Eksempel- 5 little monkeys jumping...</a></li>
+  <li><a href="#about">Kontrollere en løkke</a></li>
+  <li><a href="#about">Break</a></li>
+  <li><a href="#about">Continue</a></li>
+  <li><a href="#about">Eksempel - Primtallsgenerator</a></li>
+
+</ul>
+
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+<h1>Uendelige Løkker</h1>
+<p>Som tidligere vist i forje eksempel angående <a href="While-løkker.html">While Løkker</a>, så er det mulig å gjøre slik at koden kjøres om og om igjen i det uendelige. Om du valgte å sjekke ut siden som jeg la til som <a href="Eksempel While løkke.html">eksempel</a> for dette tidligere, la du kanskje merke til at når du trykket på "OK" på siden så ville du øyeblikkelig få en ny "Heisann" melding, og en ny "OK" knapp. De ivrigeste av dere klikket kanskje "OK" knappen mange ganger for morro skyld, og da observerte dere kanskje at siden ikke oppdaterte seg like raskt som du trykket, altså du fikk ikke en ny "OK" knapp for hvert trykk og kanskje trykket den samme knappen mange ganger før du fikk en ny en.  </p>
+<br>
+<img class="center" src="Bilder\Infinity.png" alt="Uendelig">
+<p>Dette er fordi at selv om det ser ut som at siden nesten ikke gjør noen ting, så jobber den egentlig ekstremt tungt til å kunne oppdatere seg over og over igjen så fort den kan. En konsekvens av dette store presset på siden er at siden ikke klarer å prioritere brukeren over While løkkens konstante beskjeder.</p>
+
+<h2>Hvordan unngår du dette?</h2>
+<p>Om du ikke vil at While-løkken skal fortsette ut i evigheten, så må du sørge for at While løkken etterhvert blir false. En fin måte å gjøre dette på er å sørge for at While-løkken forandrer på verdien den er hengt opp i selv.</p>
+<br>
+<p>Dette er måten jeg hadde fikset eksempelet fra tidligere om jeg ikke ville at den skulle være uendelig</a>:</p>
+<img class="center" src="Bilder\Uendelig løkke fix eksempel.PNG" alt="Koden for å fikse uendelig loop">
+<p>Her har jeg innebygd en faktor som øker verdien til variablen "antall". Koden går ut på at så lenge "Antall" er mindre verdt enn 10 så gjenntar løkken seg. Nå som While-løkken legger til 1 i variabelen hver gang man trykker på "OK", så vil man etter 9 klikk på "OK" slippe ut av loopen.</p>
+<h2>Test siden <a href="Eksempel While løkke uendelig fix.html">her.</h2>
+
+
+</div>

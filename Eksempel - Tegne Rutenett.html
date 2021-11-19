@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Thomas sin side</title>
+    
+<script>
+window.onload = oppstart;
+
+function oppstart(){
+    var kolloner = 10;
+    var Rader = 10;
+    var width = document.getElementById("tegneområde").width;
+    var height = document.getElementById("tegneområde").height;
+    var kolloner_width = width / kolloner;
+    var rad_height = height / Rader; 
+
+    var ctx = document.getElementById("tegneområde").getContext("2d");
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "blue";
+
+    for (var counterK = 0; counterK <= kolloner; counterK++){
+        ctx.beginPath();
+        ctx.moveTo(counterK * kolloner_width, 0 );
+        ctx.lineTo (counterK * kolloner_width, height);
+        ctx.stroke();
+
+    }
+    for (var counterR = 0; counterR <= Rader; counterR++){
+        ctx.beginPath();
+        ctx.moveTo(0, counterR * rad_height);
+        ctx.lineTo(width,counterR * rad_height);
+        ctx.stroke();
+    }
+}
+
+</script>
+
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <canvas id="tegneområde" width="400" height="400"></canvas>
+    <br>
+
+    <img src="Bilder\Rutenett kode 1.PNG" alt="Del 1 av koden til rutenettet">
+    <br>
+    <img src="Bilder\Rutenett kode 2.PNG" alt="Del 2 av koden til rutenettet">
+    <br>
+    <img src="Bilder\Rutenett kode 3.PNG" alt="Del 3 av koden til rutenettet">
+</body>
+</html>
