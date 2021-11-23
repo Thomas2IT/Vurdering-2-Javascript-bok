@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script>
+        function break_eksempel() {
+          var text = "";
+          var antall = 0;
+          while (antall < 5) {
+            text += "<br>Nummeret er " + antall;
+            antall++;
+            if (antall === 0) {
+              break;
+            }
+          }
+          document.getElementById("demo").innerHTML = text;
+        }
+        
+        
+        </script>
+
+
+</head>
+<body>
+<h1>Koden er utberedet, og navnene er byttet om og oversatt, men koden er opprinelig hentet fra https://www.w3schools.com/jsref/jsref_break.asp</h1>
+<p>Trykk på knappen for å kjøre eksempelet. Koden ville vanligvis printet ut 1-5, men siden vi har satt en break i den vil den slutte når variabelen sin verdi er det samme som 4.</p>
+
+<button onclick="break_eksempel()">Try it</button>
+
+<p id="demo"></p>
+<br>
+<p>Tilbake til <a href="break.html">hovedsiden</a></p>
+
+
+</body>
+</html>
