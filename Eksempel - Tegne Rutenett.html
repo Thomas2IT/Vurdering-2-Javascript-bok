@@ -17,8 +17,8 @@ function oppstart(){
 
     var ctx = document.getElementById("tegneområde").getContext("2d");
 
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "Black";
 
     for (var counterK = 0; counterK <= kolloner; counterK++){
         ctx.beginPath();
@@ -33,7 +33,23 @@ function oppstart(){
         ctx.lineTo(width,counterR * rad_height);
         ctx.stroke();
     }
+var tegneflateeksempel = document.getElementById("mitteksempel");
+var ctx = tegneflateeksempel.getContext("2d");
+
+ctx.beginPath();              
+ctx.lineWidth = "5";
+ctx.strokeStyle = "Yellow";  
+ctx.moveTo(0, 75);
+ctx.lineTo(200, 75);
+ctx.stroke();  
+
+ctx.beginPath();
+ctx.strokeStyle = "Blue";  
+ctx.moveTo(0, 100);
+ctx.lineTo(300, 100);            
+ctx.stroke();  
 }
+
 
 </script>
 
@@ -51,5 +67,31 @@ function oppstart(){
     <img src="Bilder\Rutenett kode 2.PNG" alt="Del 2 av koden til rutenettet">
     <br>
     <img src="Bilder\Rutenett kode 3.PNG" alt="Del 3 av koden til rutenettet">
+    <br>
+    <p>Til de som lurer på hvordan man vanligvis bruker ctx kode, så er dette et fint eksempel hvor jeg lager to parallele streker:
+    </p>
+    <pre>
+        
+        "canvas id="mitteksempel" width="300" height="150" style="border:1px solid #d3d3d3;"
+        
+        var tegneflateeksempel = document.getElementById("mitteksempel");
+        var ctx = tegneflateeksempel.getContext("2d");
+        
+        ctx.beginPath();              
+        ctx.lineWidth = "5";
+        ctx.strokeStyle = "Yellow";  
+        ctx.moveTo(0, 75);
+        ctx.lineTo(200, 75);
+        ctx.stroke();  
+        
+        ctx.beginPath();
+        ctx.strokeStyle = "Blue";  
+        ctx.moveTo(0, 100);
+        ctx.lineTo(300, 100);            
+        ctx.stroke();  </pre>
+    <canvas id="mitteksempel" width="300" height="150" style="border:1px solid #d3d3d3;">
+
+
+    
 </body>
 </html>
