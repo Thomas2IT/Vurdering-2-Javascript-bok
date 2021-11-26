@@ -59,3 +59,15 @@ figcaption {
 .annenFnt {
 font-weight: 1000; font-family: Georgia, 'Times New Roman', Times, serif
 }
+
+.KnappRight {
+position: absolute;
+right: 0;
+top: 0;
+}
+
+KnappLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

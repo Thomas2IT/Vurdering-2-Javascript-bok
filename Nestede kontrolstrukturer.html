@@ -11,11 +11,14 @@
     <script>
 
 
-
-
-
-
-
+        const totalt = 5 // const er en variabel som ikke kan forandre verdi. Skulle jeg prøvd å difinere "totalt" igjen senere i koden, ville koden ikke la meg gjøre det. Den er konstant.
+        
+        for (var teller = 1; teller <= totalt; teller++) {
+                     if(teller < 5, alert ("Heisann, dette er forsøk nr:" + teller + " av " + totalt )) {
+                        
+                     }
+                 }  
+             
     </script>
 </head>
 <body>
@@ -39,20 +42,43 @@
 
 
       <div style="margin-left:25%;padding:1px 16px;height:1000px;">
-        <h1>Nestede kontrollstrukturer</h1>
+  <a class="KnappRight" href="5 little monkeys.html">Neste</a>
+  <a class="KnappLeft" href="Tegne Rutenett.html">Forrige</a>
+
+        <h1>Oisann! Hva skjedde der?</h1>
+        <p>Du opplevde nettopp et eksempel på en Nestet kontrollstruktur. La oss se litt nærmere på hvordan dette fungerer, og koden som du nettopp opplevde.</p>
+        <Figure>
+        <img src="Bilder\Shocked.png" height="375" width="100" alt="Shocked Emoji" class="center">
+        <figcaption class="center">Shocked Emoji - Wikimedia - https://commons.wikimedia.org/wiki/File:Twemoji_1f62f.svg</figcaption>   
+
+        </Figure>
+        <br>
+        <br>
+        <br>
+        <h2>Nestede kontrollstrukturer</h1>
         <p>Når man programmerer med kontrollstrukturer, så er det viktig å huske at man kan bruke ordinær programkode inne i kontrollstrukturen. Dette betyr at du kan for eksempel bruke en if løkke inne i kontrollstrukturen. Se under for et eksempel:</p>
         <pre>
-            const totalt = 25   
-
+            const totalt = 5 
+            //const er en variabel som ikke kan forandre verdi. Skulle jeg prøvd å difinere "totalt" igjen senere i koden,
+             ville koden ikke la meg gjøre det. Den er konstant.
+        
             for (var teller = 1; teller <= totalt; teller++) {
-                if(teller < 25, alert ("Heisann, dette er forsøk nr:" + teller + " av " + totalt )) {
-                   
-                }
-            }  
+                         if(teller < 5, alert ("Heisann, dette er forsøk nr:" + teller + " av " + totalt )) {
+                            
+                         }
+                     }      
 
-        </pre>
-        <p>Eksempel side <a href="Nestede kontrolstrukturer eksempel.html" target="blank">her</a>.</p>
-
+                    </pre>
+        <p>Her lager jeg to variabler, nemelig totalt og teller. Totalt er det samme som 5, og teller er det samme som 1. </p>
+        <br>
+        <p>Så lenge teller er mindre eller lik verdien av totalt, så legg til 1 på teller og kjør følgende kode:</p>
+        <br>
+        <p>Om teller er mindre enn 5, så alert siden med "Heisann, dette er forsøk", og så legger vi på variablen teller her. Til slutt legger vi til " av" og variabelen totalt.</p>
+        <br>
+        <p>Som du opplevde istad, så vil du da se hvor mange ganger du har trykket, og hvor mange ganger du har igjen til du er ferdig.</p>
+        <br>
+        <br>
+        <br>
 
 
 

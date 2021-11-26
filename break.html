@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="InteraktivSideStil.css">
     <title>Break</title>
+
+    <script>
+        function break_eksempel() {
+          var text = "";
+          var antall = 0;
+          while (antall < 5) {
+            text += "<br>Nummeret er " + antall;
+            antall++;
+            if (antall === 0) {
+              break;
+            }
+          }
+          document.getElementById("demo").innerHTML = text;
+        }
+        
+        
+        </script>
 </head>
 <body>
     <ul>
@@ -25,21 +42,44 @@
       
       </ul>
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+  <a class="KnappRight" href="continue.html">Neste</a>
+  <a class="KnappLeft" href="Kontrollere en løkke.html">Forrige</a>
+
 <h1>Break</h1>
 <p>Break sørger for at kontrolløkken den tillhører stopper uansett hva som skjer inne i den.</p>
 <p>For å vise hvordan det funker har jeg følgende eksempel:</p>
 <pre></pre>
 
-
-<p>Sjekk resultatet <a href="break eksempel.html" target="blank">her</a>.</p>
 <figure>
 <img src="Bilder\Break illustrasjon.PNG" alt="Break slik som illustrert i boka">
 <figcaption class="center">Break Eksempel - Thomas Aksnes - Opprinnelig inspirert fra boka "Programmering i Javascript av Tom Heine og Jostein Nordengen</figcaption>
 </figure>
+<h1>Koden er utbredt, og navnene er byttet om og oversatt, men koden er opprinelig hentet fra https://www.w3schools.com/jsref/jsref_break.asp</h1>
+<p>Trykk på knappen for å kjøre eksempelet. Koden ville vanligvis printet ut 1-5, men siden vi har satt en break i den vil den slutte når variabelen sin verdi er det samme som 4.</p>
+<button onclick="break_eksempel()">Try it</button>
+<p id="demo"></p>
 
-
-
-
+<pre>
+    function break_eksempel() {
+      var text = "";
+      var antall = 0;
+      while (antall < 5) {
+        text += "<br>Nummeret er " + antall;
+        antall++;
+        if (antall === 0) {
+          break;
+        }
+      }
+      document.getElementById("demo").innerHTML = text;
+    }
+    
+    
+    </script></pre>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
 </body>
 </html>

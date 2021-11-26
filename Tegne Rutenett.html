@@ -7,18 +7,54 @@
     <title>Tegne Rutenett</title>
     <link rel="stylesheet" href="InteraktivSideStil.css">
 
-<script>
-
-
-
-
-
-
-
-
-
-
-</script>
+    <script>
+      window.onload = oppstart;
+      
+      function oppstart(){
+          var kolloner = 10;
+          var Rader = 10;
+          var width = document.getElementById("tegneområde").width;
+          var height = document.getElementById("tegneområde").height;
+          var kolloner_width = width / kolloner;
+          var rad_height = height / Rader; 
+      
+          var ctx = document.getElementById("tegneområde").getContext("2d");
+      
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = "Black";
+      
+          for (var counterK = 0; counterK <= kolloner; counterK++){
+              ctx.beginPath();
+              ctx.moveTo(counterK * kolloner_width, 0 );
+              ctx.lineTo (counterK * kolloner_width, height);
+              ctx.stroke();
+      
+          }
+          for (var counterR = 0; counterR <= Rader; counterR++){
+              ctx.beginPath();
+              ctx.moveTo(0, counterR * rad_height);
+              ctx.lineTo(width,counterR * rad_height);
+              ctx.stroke();
+          }
+      var tegneflateeksempel = document.getElementById("mitteksempel");
+      var ctx = tegneflateeksempel.getContext("2d");
+      
+      ctx.beginPath();              
+      ctx.lineWidth = "5";
+      ctx.strokeStyle = "Yellow";  
+      ctx.moveTo(0, 75);
+      ctx.lineTo(200, 75);
+      ctx.stroke();  
+      
+      ctx.beginPath();
+      ctx.strokeStyle = "Blue";  
+      ctx.moveTo(0, 100);
+      ctx.lineTo(300, 100);            
+      ctx.stroke();  
+      }
+      
+      
+      </script>
 
 
 
@@ -43,17 +79,57 @@
 </ul>    
 
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+<a class="KnappRight" href="Nestede kontrolstrukturer.html">Neste</a>
+<a class="KnappLeft" href="Benytte telleren til mer enn en teller.html">Forrige</a>
+
 <h1>Tegne Rutenett</h1>
 <p>På forje side gikk jeg igjennom <a href="Benytte telleren til mer enn en teller.html">hvordan man benyttet telleren som mer enn en teller.</a></p>
 <br>
-<p>På denne siden skal vi bruke det vi har lært for å tegne et rutenett.</p>
+<p>På denne siden skal vi bruke det vi har lært for å tegne et rutenett, slik som vist under.</p>
 <br>
-<p>Trykk <a href="Eksempel - Tegne Rutenett.html" target="blank">HER</a> for å se hvordan man gjør dette</p>
-<figure>
-<img class="center" src="Bilder\Rutenett.PNG" alt="Rutenett skjermbilde">
-<Figcaption class="center">Rutenett - Thomas Aksnes - Skjermbilde av eksempel side</Figcaption>
-</figure>
 
+
+<canvas class="center" id="tegneområde" width="400" height="400"></canvas>
+    <br>
+    <figure>
+    <img class="center" src="Bilder\Rutenett kode 1.PNG" alt="Del 1 av koden til rutenettet">
+    <figcaption class="center">Vi lager en funksjon oppstart. Den inneholder mange variabler vi trenger for å tegne rutenettet. <br> Vi sier også hvordan vi vil at linjene på rutenettet skal se ut. Her valgte vi at den skulle ha instilling 2 som størrelse og at den skulle være blå. <br> Til slutt lager vi en For løkke som bruker Variabelene vi har lagd til å begynne å tegne.</figcaption>
+    </figure>
+    <br>
+    <figure>
+    <img class="center" src="Bilder\Rutenett kode 2.PNG" alt="Del 2 av koden til rutenettet">
+    <figcaption class="center">Den siste delen av Javascript koden. Her ganger vi sammen våre ulike variabler for å konstruere rutenettet.</figcaption>    
+    </figure>
+    <br>
+    <figure>
+    <img class="center" src="Bilder\Rutenett kode 3.PNG" alt="Del 3 av koden til rutenettet">
+    <br>
+    <figcaption class="center">Dette er HTML delen av koden, hvor vi viser bildene vi bruker for å vise koden, og viser tegneområdet sine spesefikasjoner.</figcaption>    
+    </figure>
+    <p>Til de som lurer på hvordan man vanligvis bruker ctx kode, så er dette et fint eksempel hvor jeg lager to parallele streker , hvor den gule streken er litt mindre:
+    </p>
+    <pre>
+        
+        "canvas id="mitteksempel" width="300" height="150" style="border:1px solid #d3d3d3;"
+        
+        var tegneflateeksempel = document.getElementById("mitteksempel");
+        var ctx = tegneflateeksempel.getContext("2d");
+        
+        ctx.beginPath();              
+        ctx.lineWidth = "5";
+        ctx.strokeStyle = "Yellow";  
+        ctx.moveTo(0, 75);
+        ctx.lineTo(200, 75);
+        ctx.stroke();  
+        
+        ctx.beginPath();
+        ctx.strokeStyle = "Blue";  
+        ctx.moveTo(0, 100);
+        ctx.lineTo(300, 100);            
+        ctx.stroke();  </pre>
+    
+       
+    <canvas class="center" id="mitteksempel" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>
 
 
 

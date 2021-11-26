@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="InteraktivSideStil.css">
     <script>
 
+window.onload = oppstart;
 
+function oppstart (){
+    document.getElementById("btnGenerer").onclick = generer;
+}
 
+function generer (){
+    var fraVerdi = document.getElementById("txtFra").value;
+    var TilVerdi = document.getElementById("txtTil").value;
 
+    var tekst = "";
 
+    for(var hovedtall = fraVerdi; hovedtall<=TilVerdi;hovedtall++){
+        var erPrimtall = true;
+        for (var deletall = 2; deletall < hovedtall; deletall++) {
+            if (hovedtall % deletall === 0){
+                erPrimtall = false;
+                break;
 
-
-
-
-
-
+            }
+        }
+        if (erPrimtall === true && hovedtall > 1)
+            tekst += "Tallet" + hovedtall + " er et primtall! <br />"
+    }    
+    document.getElementById("utskrift").innerHTML = tekst;
+}
     </script>
 </head>
 <body>
@@ -40,10 +56,46 @@
             
             </ul>    
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+  <a class="KnappLeft" href="continue.html">Forrige</a>
+
 <h1>Primtallsgenerator</h1>
-<p>Med alt vi har lært så langt burde vi greie å lage en Primtallsgenerator. Dette er hvordan man gjør <a href="Primtallsgenerator kode.html" target="blank">gjør det</a>.</p>
+<p>Med alt vi har lært så langt burde vi greie å lage en Primtallsgenerator. Eksempelet under er hvordan man kan gjøre dette.</p>
+<p>Sett inn ditt start tall i den første boksen, og slutt tallet i det andre. </p>
+Fra: <input type ="text" id="txtFra" />
+Til: <input type="text"  id="txtTil" />
+<button id="btnGenerer" type="button">Generer</button>
+</p>
+<p id="utskrift"></p>    
+<pre>window.onload = oppstart;
 
-
+    function oppstart (){
+        document.getElementById("btnGenerer").onclick = generer;
+    }
+    
+    function generer (){
+        var fraVerdi = document.getElementById("txtFra").value;
+        var TilVerdi = document.getElementById("txtTil").value;
+    
+        var tekst = "";
+    
+        for(var hovedtall = fraVerdi; hovedtall<=TilVerdi;hovedtall++){
+            var erPrimtall = true;
+            for (var deletall = 2; deletall < hovedtall; deletall++) {
+                if (hovedtall % deletall === 0){
+                    erPrimtall = false;
+                    break;
+    
+                }
+            }
+            if (erPrimtall === true && hovedtall > 1)
+                tekst += "Tallet" + hovedtall + " er et primtall! <br />"
+        }    
+        document.getElementById("utskrift").innerHTML = tekst;
+    }
+    
+    
+    
+    </pre>
 
 
 

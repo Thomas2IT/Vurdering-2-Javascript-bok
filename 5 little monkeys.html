@@ -8,11 +8,28 @@
     <title>5 little monkeys</title>
 
 
-    <script>
+<script>
+window.onload = oppstart;
 
-
-
-
+        function oppstart() {
+        var tekst = "";
+        for (var antall = 5; antall >= 1; antall--) {
+        tekst += antall + " little monkeys jumping on the bed, <br />";
+        tekst += "One fell off and bumped his head; <br />;";
+        tekst += "Momma called the doctor, the doctor said, <br />";
+        tekst += "That's what you get for jumping on the bed! <br />";
+        tekst += (antall-1) + " little monkeys jumping on the bed! <br /> <br />";
+    }
+    document.getElementById("utskrift").innerHTML = tekst; 
+ {
+                var text = "";
+                for (var amount = 5; amount >= 1; amount--) {
+                text += (amount-1) 
+            }
+            document.getElementById("forkortet eksempel").innerHTML = text; 
+        }
+        
+}
     </script>
 </head>
 <body>
@@ -37,17 +54,46 @@
 
 
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+    <a class="KnappRight" href="Kontrollere en løkke.html">Neste</a>
+  <a class="KnappLeft" href="Nestede kontrolstrukturer.html">Forrige</a>
+
  <h1>Eksempel - 5 little monkeys</h1>
  <p>Du kjenner kanskje igjen barnesangen "5 little monkeys jumping on the bed"? <br> Dette er hvordan man kan gjenskape denne sangen med løkker: </p> 
  <figure>  
  <img class="center" src="Bilder/Monkey.jfif" alt="Monkey bilde">  
  <figcaption class="center">Smiling Monkey - No Copyright</figcaption>
  </figure>
- <p>se <a href="5 little monkeys eksempel.html" target="blank">her</a>!</p>  
+ <br>
     
-    
-    
-    
+<p id="utskrift"></p>   
+<pre>window.onload = oppstart;
+
+    function oppstart() {
+    var tekst = "";
+    for (var antall = 5; antall >= 1; antall--) {
+    tekst += antall + " little monkeys jumping on the bed, <br />";
+    tekst += "One fell off and bumped his head; <br />;";
+    tekst += "Momma called the doctor, the doctor said, <br />";
+    tekst += "That's what you get for jumping on the bed! <br />";
+    tekst += (antall-1) + " little monkeys jumping on the bed! <br /> <br />";
+}
+document.getElementById("utskrift").innerHTML = tekst; 
+}</pre>
+<h3>Denne koden er egentlig et eksempel på å telle ned fra 5 med tekst i tillegg. Forenkler du koden, vil du få dette:</h3> 
+<p id="forkortet eksempel"></p> 
+<pre>window.onload = oppstart;
+        
+    function oppstart() {
+    var tekst = "";
+    for (var antall = 5; antall >= 1; antall--) {
+    tekst += (antall-1) 
+}
+document.getElementById("utskrift").innerHTML = tekst; 
+}
+</pre>     
+<br>
+<br>
+<br>    
     
     
     
