@@ -8,17 +8,18 @@
 
 <ul>
   <li><a href="index.html">Innholdsfortegnelse</a></li>
-  <li><a href="While-løkker.html">While-løkker</a></li>
-  <li><a href="Uendelige løkker.html">Uendelige løkker</a></li>
-  <li><a href="For-løkker.html">For-løkker</a></li>
-  <li><a href="Benytte telleren til mer enn en teller.html">Benytte telleren til mer enn en teller</a></li>
-  <li><a href="Tegne Rutenett.html">Eksempel- Tegne rutenett</a></li>
-  <li><a href="Nestede kontrolstrukturer.html">Nestede kontrollstrukturer</a></li>
-  <li><a href="5 little monkeys.html">Eksempel- 5 little monkeys jumping...</a></li>
-  <li><a href="Kontrollere en løkke.html">Kontrollere en løkke</a></li>
-  <li><a href="break.html">Break</a></li>
-  <li><a href="continue.html">Continue</a></li>
-  <li><a href="primtall.html">Eksempel - Primtallsgenerator</a></li>
+        <li class="annenFnt"><a href="Lokker.html">Løkker</a></li>
+        <li><a href="While-løkker.html">While-løkker</a></li>
+        <li><a href="Uendelige løkker.html">Uendelige løkker</a></li>
+        <li><a href="For-løkker.html">For-løkker</a></li>
+        <li class="annenFnt"><a href="Benytte telleren til mer enn en teller.html">Benytte telleren til mer enn en teller</a></li>
+        <li><a href="Tegne Rutenett.html">Eksempel- Tegne rutenett</a></li>
+        <li><a href="Nestede kontrolstrukturer.html">Nestede kontrollstrukturer</a></li>
+        <li><a href="5 little monkeys.html">Eksempel- 5 little monkeys jumping...</a></li>
+        <li class="annenFnt"><a href="Kontrollere en løkke.html">Kontrollere en løkke</a></li>
+        <li><a href="break.html">Break</a></li>
+        <li><a href="continue.html">Continue</a></li>
+        <li><a href="primtall.html">Eksempel - Primtallsgenerator</a></li>
       
 </ul>
 
@@ -27,6 +28,19 @@
 <p>Nå som vi har brukt litt tid med både For løkker og While-løkker, så legger du kanskje merke til at vi bruker en variabel i betingelsene våre. Det er lett å gå i felle om å kunn tenke på denne variabelen som et verktøy i selve løkka, men husk at den kan også brukes som en vanlig variabel også. Dette betyr at hvis du vet hvordan du bruker variabler for regning, eller om du vil bruke variabelen i en tekst, så er det fullt mulig.</p>
 <h2>Ikke tenk på variabelen i løkka som kunn en del av løkka, men som noe du kan bruke utenom løkken også.</h2>
 <p>På neste side vil vi se et eksempel på dette i praksis.</p>
+
+<h2>Før det vil jeg gjerne vise i mindre grad hva jeg mener.</h2>
+<p>Her går vi utifra at vi har et "p" element som vi skal legge til en variabel på slutten av.</p>
+<br>
+<p>Vi kan si at "p"-en sier "Jeg har nå". Deretter setter vi inn variabelen, og så legger vi på hva vi skal ha noe av. Her velger jeg Epler.</p>
+<pre class="center">
+for (var c = 1; c < 5; c++) {
+document.getElementByID("paragraf").innerHTML += c + " epler"; 
+}
+</pre>
+<br>
+<p>Her vil vi da få 4 linjer med tekst som sier "Jeg har nå 1,2,3,4 epler.</p>
+
 
 
 

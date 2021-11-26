@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Thomas sin side</title>
-    
+    <link rel="stylesheet" href="InteraktivSideStil.css">   
 <script>
 window.onload = oppstart;
 
@@ -59,15 +59,23 @@ ctx.stroke();
 </head>
 
 <body>
-    <canvas id="tegneområde" width="400" height="400"></canvas>
+    <canvas class="center" id="tegneområde" width="400" height="400"></canvas>
     <br>
-
-    <img src="Bilder\Rutenett kode 1.PNG" alt="Del 1 av koden til rutenettet">
+    <figure>
+    <img class="center" src="Bilder\Rutenett kode 1.PNG" alt="Del 1 av koden til rutenettet">
+    <figcaption class="center">Vi lager en funksjon oppstart. Den inneholder mange variabler vi trenger for å tegne rutenettet. <br> Vi sier også hvordan vi vil at linjene på rutenettet skal se ut. Her valgte vi at den skulle ha instilling 2 som størrelse og at den skulle være blå. <br> Til slutt lager vi en For løkke som bruker Variabelene vi har lagd til å begynne å tegne.</figcaption>
+    </figure>
     <br>
-    <img src="Bilder\Rutenett kode 2.PNG" alt="Del 2 av koden til rutenettet">
+    <figure>
+    <img class="center" src="Bilder\Rutenett kode 2.PNG" alt="Del 2 av koden til rutenettet">
+    <figcaption class="center">Den siste delen av Javascript koden. Her ganger vi sammen våre ulike variabler for å konstruere rutenettet.</figcaption>    
+    </figure>
     <br>
-    <img src="Bilder\Rutenett kode 3.PNG" alt="Del 3 av koden til rutenettet">
+    <figure>
+    <img class="center" src="Bilder\Rutenett kode 3.PNG" alt="Del 3 av koden til rutenettet">
     <br>
+    <figcaption class="center">Dette er HTML delen av koden, hvor vi viser bildene vi bruker for å vise koden, og viser tegneområdet sine spesefikasjoner.</figcaption>    
+    </figure>
     <p>Til de som lurer på hvordan man vanligvis bruker ctx kode, så er dette et fint eksempel hvor jeg lager to parallele streker:
     </p>
     <pre>
@@ -89,9 +97,8 @@ ctx.stroke();
         ctx.moveTo(0, 100);
         ctx.lineTo(300, 100);            
         ctx.stroke();  </pre>
-    <canvas id="mitteksempel" width="300" height="150" style="border:1px solid #d3d3d3;">
-
-
     
+    <h1>Tilbake til <a href="Tegne Rutenett.html">hovedsiden</a></h1>    
+    <canvas class="center" id="mitteksempel" width="300" height="150" style="border:1px solid #d3d3d3;"></canvas>
 </body>
 </html>

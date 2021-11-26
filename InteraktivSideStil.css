@@ -40,7 +40,9 @@ button {text-align: center;}
 h2 { text-align:center;}
 h3 { text-align:center;}
 
-
+figcaption {
+  color: blue;
+}
 
 
 
@@ -54,3 +56,6 @@ h3 { text-align:center;}
     text-align: center;
   }
   
+.annenFnt {
+font-weight: 1000; font-family: Georgia, 'Times New Roman', Times, serif
+}
