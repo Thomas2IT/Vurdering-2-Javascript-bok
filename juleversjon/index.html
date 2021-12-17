@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="MinStil_Nettside.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <img class="center" src="bilder html\Merry Christmas.gif" alt="Merry Christmas">
+
+    <title>Document</title>
+    <input type="radio" name="kjonn" id="rbtnKjonnMann" class="center" value="mann" />
+    <p>Du er flink i til å "game"</p>  
+    <input type="radio" name="kjonn" id="rbtnKjonnKvinne" class="center" value="Kvinne" />
+    <p>Du er ikke flink til å "game"</p>
+
+    
+
+</head>
+<body style="background-color: black;">
+
+    
+
+    <style>
+        #snowflakeContainer {
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          display: none;
+        }
+      
+        .snowflake {
+          position: fixed;
+          background-color: #CCC;
+          user-select: none;
+          z-index: 1000;
+          pointer-events: none;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+        }
+      </style>
+      
+      <div id="snowflakeContainer">
+        <span class="snowflake"></span>
+      </div>
+      
+      <script>
+        // Array to store our Snowflake objects
+        var snowflakes = [];
+      
+        // Global variables to store our browser's window size
+        var browserWidth;
+        var browserHeight;
+      
+        // Specify the number of snowflakes you want visible
+        var numberOfSnowflakes = 50;
+      
+        // Flag to reset the position of the snowflakes
+        var resetPosition = false;
+      
+        // Handle accessibility
+        var enableAnimations = false;
+        var reduceMotionQuery = matchMedia("(prefers-reduced-motion)");
+      
+        // Handle animation accessibility preferences 
+        function setAccessibilityState() {
+          if (reduceMotionQuery.matches) {
+            enableAnimations = false;
+          } else { 
+            enableAnimations = true;
+          }
+        }
+        setAccessibilityState();
+      
+        reduceMotionQuery.addListener(setAccessibilityState);
+      
+        //
+        // It all starts here...
+        //
+        function setup() {
+          if (enableAnimations) {
+            window.addEventListener("DOMContentLoaded", generateSnowflakes, false);
+            window.addEventListener("resize", setResetFlag, false);
+          }
+        }
+        setup();
+      
+        //
+        // Constructor for our Snowflake object
+        //
+        function Snowflake(element, speed, xPos, yPos) {
+          // set initial snowflake properties
+          this.element = element;
+          this.speed = speed;
+          this.xPos = xPos;
+          this.yPos = yPos;
+          this.scale = 1;
+      
+          // declare variables used for snowflake's motion
+          this.counter = 0;
+          this.sign = Math.random() < 0.5 ? 1 : -1;
+      
+          // setting an initial opacity and size for our snowflake
+          this.element.style.opacity = (.1 + Math.random()) / 3;
+        }
+      
+        //
+        // The function responsible for actually moving our snowflake
+        //
+        Snowflake.prototype.update = function () {
+          // using some trigonometry to determine our x and y position
+          this.counter += this.speed / 5000;
+          this.xPos += this.sign * this.speed * Math.cos(this.counter) / 40;
+          this.yPos += Math.sin(this.counter) / 40 + this.speed / 30;
+          this.scale = .5 + Math.abs(10 * Math.cos(this.counter) / 20);
+      
+          // setting our snowflake's position
+          setTransform(Math.round(this.xPos), Math.round(this.yPos), this.scale, this.element);
+      
+          // if snowflake goes below the browser window, move it back to the top
+          if (this.yPos > browserHeight) {
+            this.yPos = -50;
+          }
+        }
+      
+        //
+        // A performant way to set your snowflake's position and size
+        //
+        function setTransform(xPos, yPos, scale, el) {
+          el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) scale(${scale}, ${scale})`;
+        }
+      
+        //
+        // The function responsible for creating the snowflake
+        //
+        function generateSnowflakes() {
+      
+          // get our snowflake element from the DOM and store it
+          var originalSnowflake = document.querySelector(".snowflake");
+      
+          // access our snowflake element's parent container
+          var snowflakeContainer = originalSnowflake.parentNode;
+          snowflakeContainer.style.display = "block";
+      
+          // get our browser's size
+          browserWidth = document.documentElement.clientWidth;
+          browserHeight = document.documentElement.clientHeight;
+      
+          // create each individual snowflake
+          for (var i = 0; i < numberOfSnowflakes; i++) {
+      
+            // clone our original snowflake and add it to snowflakeContainer
+            var snowflakeClone = originalSnowflake.cloneNode(true);
+            snowflakeContainer.appendChild(snowflakeClone);
+      
+            // set our snowflake's initial position and related properties
+            var initialXPos = getPosition(50, browserWidth);
+            var initialYPos = getPosition(50, browserHeight);
+            var speed = 5 + Math.random() * 40;
+      
+            // create our Snowflake object
+            var snowflakeObject = new Snowflake(snowflakeClone,
+              speed,
+              initialXPos,
+              initialYPos);
+            snowflakes.push(snowflakeObject);
+          }
+      
+          // remove the original snowflake because we no longer need it visible
+          snowflakeContainer.removeChild(originalSnowflake);
+      
+          moveSnowflakes();
+        }
+      
+        //
+        // Responsible for moving each snowflake by calling its update function
+        //
+        function moveSnowflakes() {
+      
+          if (enableAnimations) {
+            for (var i = 0; i < snowflakes.length; i++) {
+              var snowflake = snowflakes[i];
+              snowflake.update();
+            }      
+          }
+      
+          // Reset the position of all the snowflakes to a new value
+          if (resetPosition) {
+            browserWidth = document.documentElement.clientWidth;
+            browserHeight = document.documentElement.clientHeight;
+      
+            for (var i = 0; i < snowflakes.length; i++) {
+              var snowflake = snowflakes[i];
+      
+              snowflake.xPos = getPosition(50, browserWidth);
+              snowflake.yPos = getPosition(50, browserHeight);
+            }
+      
+            resetPosition = false;
+          }
+      
+          requestAnimationFrame(moveSnowflakes);
+        }
+      
+        //
+        // This function returns a number between (maximum - offset) and (maximum + offset)
+        //
+        function getPosition(offset, size) {
+          return Math.round(-1 * offset + Math.random() * (size + 2 * offset));
+        }
+      
+        //
+        // Trigger a reset of all the snowflakes' positions
+        //
+        function setResetFlag(e) {
+          resetPosition = true;
+        }
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+<div class="col-md-6">
+<h2>Super kul rad 1</h2>
+</div>
+<div class="col-md-6"> 
+<h2>Super kul rad 2</h2>
+</div>
+</div>
+</div>
+    
+<br>
+<img src="bilder html/Ultrakill.jpg" width=400 alt="Ultrakill" class="center">
+
+<p>I det siste har jeg spilt mye av et spill som heter "Ultrakill", det er et spill med mye style og som går veldig fort. Det er nok den raskeste "fps" (first person shooter) spillet jeg noen gang har spilt.</p>
+
+<p>Som et eksempel på hvor hektisk dette spillet kan bli:</p>
+
+<img src="GIF elr Video/ultrakillclip.gif" width=400 class="center" alt="Ultrakill clip">
+
+<p>Du har mange forskjellige våpen du kan bruke i dette spillet, men helt klart den kuleste er denne pistolen. Om du høyre klikker, så vil du kaste en mynt opp i luften. Om du skyter den mynten mens den er i lufta, så vil kulen du skyter få "aimbot".</p>
+
+<img src="GIF elr Video/UltrakillCoin.gif" width=400 class="center" alt="Ultrakill mynt"> </img>
+
+<script>
+
+
+
+window.onload = oppstart;
+
+    
+
+
+    
+
+function oppstart() {
+    //Ved klikk på element med ID "btnVelkomst" (knappen), kjør "visHilsen"
+    document.getElementById("btnVelkomst").onclick = visHilsen;
+
+    //Angående bildene med sjekkboks
+    document.getElementById("Pistol").onclick = visPistol;      //Finn id "pistol", når du trykker på den ID-en, kjør funksjon "visPistol"
+    document.getElementById("Shotgun").onclick = visShotgun;
+    document.getElementById("Nailgun").onclick = visNailgun;
+    document.getElementById("Railcannon").onclick = visRailcannon;
+    //Denne koden gjør slik at bildet "Pistol" blir visst som første bilde på "bilderullen"
+    document.getElementById("bilde").src = 
+    document.getElementById("Pistol").value;
+    document.getElementById("Pistol").checked = true;  
+
+
+    document.getElementById("btnKlikk").onclick = klikket;      // Når man trykker på "Skyt med Pistolen!" knappen, vil javascript kjøre funksjon "klikket"
+    document.getElementById("hemmelig").onclick = hemmelig;     // Når man trykker på "Skyt med Nailgun-en!" knappen, vil Javascript kjøre funksjon "hemmelig"
+
+    
+    
+    
+}
+
+
+
+
+    function klikket() {
+          antall = antall + 1;                                      // Variabelen vil få +1 
+          document.getElementById("antKlikk").innerHTML = antall;   // Og "antKlikk" vil oppdatere seg for å vise dette
+      }
+
+      function hemmelig() {
+          antall = antall + 100;                                    // Varialbelen vil få +100
+          document.getElementById("antKlikk").innerHTML = antall;   // Og "antKlikk" vil oppdatere seg for å vise dette.
+      }
+
+
+
+      var span = document.getElementById('span');   //Variabelen "span" = ID-en "span"
+
+
+
+
+
+
+function visHilsen() {
+    //Viser en melding med navnet, som hentes fra elementet med ID "txtNavn" (tekstboksen)
+    alert("Du er klar til å prøve Ultrakill " + document.getElementById("txtNavn").value + "!");        //value er innholdet i tekstboksen eller det brukeren har skrevet der
+}
+document.getElementById("rbtnKjonnMann").onclick = flink        //Om man trykker på id "rbtnKjonnMann" så kjør funksjon "flink"
+
+document.getElementById("rbtnKjonnKvinne").onclick = ikkeflink  //Om man trykker på id "rbtnKjonnKvinne" så kjør funksjon "ikkeflink"
+
+function flink() {
+    alert("Da er denne siden for deg!")     // Vis melding "Da er denne siden for deg!"
+}
+
+function ikkeflink() {
+    alert("Det går bra, les alikavel!")     // Vis melding "Det går bra, les alikavel!"
+}
+
+
+
+
+function visPistol() {
+    document.getElementById("bilde").src =
+        document.getElementById("Pistol").value;
+}
+function visShotgun() {
+    document.getElementById("bilde").src =
+        document.getElementById("Shotgun").value;
+}
+
+function visNailgun() {
+    document.getElementById("bilde").src =
+        document.getElementById("Nailgun").value;
+}
+
+function visRailcannon() {
+    document.getElementById("bilde").src =
+        document.getElementById("Railcannon").value;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+    <p class="center">Ditt navn:</p>
+     <input type="text" id="txtNavn" class="center" />
+    <!--Tekstboks-->
+
+    <button type="button" id="btnVelkomst" class="center" style="color: black;" >OK</button>
+
+    <br>
+    <!--Knapp-->
+    <button id="btnKlikk" class="center" style="color: black;">Skytt med Pistolen!</button>                      
+    <p class="center">Du har skutt <span id="antKlikk">0</span> kuler </p>   
+    <button id="hemmelig" class="center" style="color: black;" >Skyt med "Nailgun-en"!</button>
+    
+
+<br>
+    
+
+    <img src="#" id="bilde" width="100" height="400" class="center">
+    <div class="center">       
+    <p class="center">Her er alle våpenene du kan bruke i dette spillet så langt</p>
+
+    <div style="color:white">
+    <input type="radio" name="bildeliste" id="Pistol" value="bilder html\Pistol.jpg"/> Pistol <br/>
+    <input type="radio" name="bildeliste" id="Shotgun" value="bilder html\Shotgun.png" />Shotgun <br/>
+    <input type="radio" name="bildeliste" id="Nailgun" value="bilder html\Nailgun.png" />Nailgun <br/>
+    <input type="radio" name="bildeliste" id="Railcannon" value="bilder html\Railcannon.png"/>RailCannon <br/>
+    </div>
+</body>
+</html>
